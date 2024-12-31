@@ -87,10 +87,10 @@ class _FavoritePageState extends State<FavoritePage> {
           final recipe = favoriteRecipes[index];
           return GestureDetector(
             onTap: () {
-              Navigator.push(
+              Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => DetailPage(recipe: recipe),
+                  builder: (context) => DetailPage(recipe: recipe,initNav: 2,),
                 ),
               );
             },

@@ -9,8 +9,6 @@ User? user;
 Future <void> main() async{
   await Hive.initFlutter();
   final box = await Hive.openBox('favorites');
-  List favoriteIds = box.values.toList();
-  List<int> Ids = favoriteIds.cast<int>();
 
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());

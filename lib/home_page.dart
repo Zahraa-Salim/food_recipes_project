@@ -256,9 +256,9 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           GestureDetector(
                             onTap: () {
-                              Navigator.push(
+                              Navigator.pushReplacement(
                                 context, MaterialPageRoute(
-                                  builder: (context) =>DetailPage(recipe: recipe),
+                                  builder: (context) =>DetailPage(recipe: recipe,initNav: 0,),
                                   ),
                               );
                             },

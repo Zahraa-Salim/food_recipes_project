@@ -78,7 +78,6 @@ class _AddRecipePageState extends State<AddRecipePage> {
         },
       );
 
-      print("Response: ${response.body}");
       if (response.statusCode == 200) {
         var jsonResponse = json.decode(response.body);
         if (jsonResponse['status'] == 'success') {
@@ -97,7 +96,6 @@ class _AddRecipePageState extends State<AddRecipePage> {
         throw Exception("Failed with status code ${response.statusCode}");
       }
     } catch (e) {
-      print("Error: $e");
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text("Error: $e"),

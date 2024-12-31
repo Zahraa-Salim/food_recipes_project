@@ -111,10 +111,10 @@ class _SearchPageState extends State<SearchPage> {
                   final isFavorite = favoriteIds.contains(recipe.id);
                   return GestureDetector(
                     onTap: () {
-                      Navigator.push(
+                      Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => DetailPage(recipe: recipe),
+                          builder: (context) => DetailPage(recipe: recipe,initNav: 1,),
                         ),
                       );
                     },

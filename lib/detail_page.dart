@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_recipes_project/ingredient.dart';
+import 'package:food_recipes_project/navigation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:food_recipes_project/recipe.dart';
 import 'package:http/http.dart' as http;
@@ -7,8 +8,9 @@ import 'dart:convert';
 
 class DetailPage extends StatefulWidget {
   final Recipe recipe;
+  final int initNav;
 
-  const DetailPage({super.key, required this.recipe});
+  const DetailPage({super.key, required this.recipe, required this.initNav});
 
   @override
   State<DetailPage> createState() => _DetailPageState();
@@ -63,14 +65,23 @@ class _DetailPageState extends State<DetailPage> {
           Positioned(
             top: 40,
             left: 10,
-            child: IconButton(
-              icon: const Icon(
-                Icons.arrow_back_ios_new,
-                color: Colors.white,
+            child: CircleAvatar(
+              radius: 23,
+              backgroundColor: Colors.white,
+              child:IconButton(
+                icon: const Icon(
+                  Icons.arrow_back_ios_new,
+                  color: Colors.teal,
+                ),
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Navigation(initialIndex: widget.initNav),
+                    ),
+                  );
+                },
               ),
-              onPressed: () {
-                Navigator.pop(context);
-              },
             ),
           ),
           // DraggableScrollableSheet

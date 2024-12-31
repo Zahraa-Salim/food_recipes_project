@@ -51,7 +51,6 @@ class _MyRecipesPageState extends State<MyRecipesPage> {
     final response = await http.get(Uri.parse(url));
 
     if (response.statusCode == 200) {
-       print(response.body);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
@@ -99,7 +98,7 @@ class _MyRecipesPageState extends State<MyRecipesPage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => DetailPage(recipe: recipe),
+                  builder: (context) => DetailPage(recipe: recipe,initNav: 3,),
                 ),
               );
             },
