@@ -8,6 +8,7 @@ User? user;
 
 Future <void> main() async{
   await Hive.initFlutter();
+  final box = await Hive.openBox('favorites');
 
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
